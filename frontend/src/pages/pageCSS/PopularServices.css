@@ -1,0 +1,492 @@
+.popular-section {
+  width: min(1500px, calc(100% - 40px));
+
+  margin: auto;
+
+  padding: 190px 0 80px;
+
+  text-align: center;
+    height: 100%;
+}
+
+
+/* Heading */
+
+.section-heading span {
+  display: block;
+
+  color: #8b94a0;
+
+  font-size: 12px;
+
+  margin-bottom: 8px;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  font-size: 40px;
+
+  line-height: 1.15;
+}
+
+
+/* Popular */
+
+.popular-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 18px;
+
+  margin-top: 40px;
+
+  height: 370px !important;
+
+  border-radius: 15px;
+}
+
+.popular-card {
+  text-align: left;
+
+  background: white;
+
+  border:
+    1px solid #e7eaf0;
+
+  border-radius: 5px;
+
+  overflow: hidden;
+}
+
+.popular-card img {
+  width: 100%;
+
+  height: 200px;
+
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 13px;
+}
+
+.card-body h3 {
+  margin: 0 0 10px;
+
+  font-size: 24px;
+}
+
+.tags {
+  display: flex;
+
+  gap: 5px;
+
+  flex-wrap: wrap;
+}
+
+.tags span {
+  background: #dadee2 !important;
+
+  color: #383a3e;
+
+  font-size: 18px;
+
+  padding: 4px 6px;
+
+  border-radius: 11px !important;
+}
+
+.card-bottom {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: 27px;
+}
+
+.card-bottom strong {
+  font-size: 35px;
+}
+
+.card-bottom button,
+.primary-btn,
+.primary-btn:visited,
+.primary-btn:link {
+  text-decoration: none;
+  border: 0;
+  background: #171e82;
+  color: #ffffff !important;
+  border-radius: 18px;
+  padding: 8px 14px;
+  font-size: 18px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.primary-btn {
+  margin-top: 24px;
+  padding: 12px 28px;
+}
+
+/* تأثير تحريك الزر وتغيير اللون عند إمرار الماوس */
+.card-bottom button:hover,
+.primary-btn:hover {
+  background: #0f145c;
+  color: #ffffff !important;
+}
+
+
+/* Services */
+
+.services-heading {
+  margin-top: 75px;
+}
+
+.service-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 22px;
+
+  margin-top: 35px;
+
+  text-align: left;
+
+  height: 370px !important;
+}
+.service-card {
+  background: white;
+
+  border:
+    1px  #e7eaf0;
+
+    font-size: 22px;
+
+    border-radius: 25px;
+}
+
+.service-card img {
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: cover;
+}
+
+.service-card h3 {
+  margin: 16px 16px 8px;
+
+  font-size: 24px;
+}
+
+.service-card p {
+  margin: 0 16px 10px;
+
+  color: #7d8792;
+
+  font-size: 18px;
+
+  line-height: 1.6;
+}
+
+.service-card a {
+  display: inline-block;
+
+  margin: 0 16px 16px;
+
+  color: #171e82;
+
+  font-size: 15px;
+
+  text-decoration: none;
+}
+
+
+/* Destinations */
+
+.destinations-heading {
+  margin-top: 75px;
+}
+
+.destination-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 10px;
+
+  margin-top: 30px;
+
+  border-radius: 15px !important;
+}
+
+.destinations-section {
+  padding: 60px 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.destinations-heading .subtitle {
+  color: #718096;
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.destinations-heading h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 50px;
+}
+
+/* الشبكة: تباعد أكبر وحجم أوسع */
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* بطاقة الوجهة الحجم المكبر */
+.destination-card {
+  background-color: #ebedf0;
+  border-radius: 16px;
+  padding: 28px 32px; /* زيادة الهوامش الداخلية لراحة العين */
+  min-height: 100px;  /* إعطاء ارتفاع أدنى ممتاز للبطاقة */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.left-box, .right-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-box {
+  text-align: left;
+}
+
+.right-box {
+  text-align: right;
+}
+
+/* تكبير الخطوط والعناوين */
+.left-box strong, .right-box strong {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.3px;
+}
+
+.left-box span, .right-box span {
+  font-size: 15px;
+  color: #64748b;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* الفاصل المنقط المكبر بمنتصف البطاقة */
+.plane-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch; /* يجعله يتمدد بكامل ارتفاع البطاقة */
+  width: 50px;
+}
+
+.line-dashed {
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  width: 1px;
+  border-left: 2px dashed #a0aec0;
+}
+
+.plane-badge {
+  position: relative;
+  z-index: 1;
+  background-color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.plane-icon {
+  font-size: 15px;
+  color: #0f172a;
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+/* تجاوب الشاشات */
+@media (max-width: 1024px) {
+  .destination-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .destination-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .destination-card {
+    padding: 22px 24px;
+  }
+}
+
+.destination-row {
+  background: white;
+  border: 1px solid #e7eaf0;
+  display: grid;
+  /* تقسيم الـ Grid: جهة شمال (1fr)، الطيارة بالنص (auto)، جهة يمين (1fr) */
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 12px;
+}
+
+.left-box {
+  text-align: left;
+}
+
+.right-box {
+  text-align: right; /* بيضمن الكلام بالجهة الثانية يروح على أقصى اليمين */
+}
+
+.destination-row strong {
+  display: block;
+  font-size: 27px;
+}
+
+.destination-row span {
+  display: block;
+  color: #89919c;
+  margin-top: 4px;
+  font-size: 17px;
+}
+
+/* شيل الـ absolute واستبدله بهيدا */
+.plane {
+  color: #171e82;
+  font-size: 30px;
+  padding: 0 15px; /* مسافة أمان حتى ما تلزق بالطيران والأطراف */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* About */
+
+.about-section {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 70px;
+
+  align-items: center;
+
+  text-align: left;
+
+  margin-top: 70px;
+}
+
+.about-text h2 {
+  font-size: 37px;
+
+  margin: 10px 0 20px;
+}
+
+.about-text > span {
+  color: #8b94a0;
+
+  font-size: 25px;
+
+  background: #f0f2f5;
+}
+
+.about-text p {
+  color: #737d89;
+
+  font-size: 17px;
+
+  line-height: 1.5;
+}
+
+.about-section img {
+  width: 100%;
+
+  height: 330px;
+
+  object-fit: cover;
+
+  border-radius: 7px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 850px) {
+
+  .popular-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .destination-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .popular-section {
+    width: calc(100% - 24px);
+  }
+
+  .popular-grid,
+  .destination-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+}

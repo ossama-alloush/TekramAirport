@@ -1,0 +1,424 @@
+* {
+  box-sizing: border-box;
+}
+
+.lounge-details-page {
+  width: 100%;
+  background: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #07171c;
+  padding: 0 0 80px;
+}
+
+/* ========================================
+   PAGE HEADER / BREADCRUMB BANNER
+======================================== */
+
+.details-header {
+  width: 100%;
+  background: #f4f6f8;
+  padding: 40px 8%;
+  margin-bottom: 30px;
+  text-align: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.details-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #07171c;
+  margin: 0 0 8px;
+}
+
+.details-header p {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   TOP SLIDER
+======================================== */
+
+.lounge-detail-slider {
+  width: 100%;
+  height: 230px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.detail-slider-card {
+  width: 525px;
+  height: 218px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.detail-slider-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 15px;
+}
+
+.detail-slider-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.detail-slider-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.detail-slider-content h3 {
+  margin: 30px 0 8px;
+  font-size: 20px;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.detail-slider-content > button {
+  border: none;
+  text-align: center;
+  background: #0c3981;
+  color: #fff;
+  padding: 9px 22px;
+  border-radius: 22px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.slider-price {
+  position: absolute;
+  left: 17px;
+  bottom: 9px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.slider-price span {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.slider-price strong {
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+/* ========================================
+   TITLE / PRICE
+======================================== */
+
+.lounge-detail-header {
+  width: 84%;
+  max-width: 1570px;
+  min-height: 120px;
+  margin: 20px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.lounge-detail-header h1 {
+  margin: 0;
+  font-size: 38px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #07171c;
+}
+
+.lounge-detail-price {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  min-width: 170px;
+  color: #26363d;
+}
+
+.lounge-detail-price span {
+  font-size: 16px;
+  color: #6c757d;
+}
+
+.lounge-detail-price strong {
+  margin-top: 3px;
+  font-size: 40px;
+  line-height: 1;
+  color: #0c3981;
+}
+
+/* ========================================
+   BOOKING SUMMARY BAR (IDAFE JDIDE)
+======================================== */
+
+.booking-summary-bar {
+  width: 82.5%;
+  max-width: 1540px;
+  margin: 30px auto 10px;
+  padding: 18px 24px;
+  background: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.booking-summary-bar div {
+  font-size: 16px;
+  color: #334155;
+}
+
+.booking-summary-bar strong {
+  color: #07171c;
+}
+
+.booking-summary-bar button {
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+}
+
+.booking-summary-bar button:hover {
+  background: #007bff !important;
+  color: #fff !important;
+}
+
+/* ========================================
+   BOOKING CONTAINER
+======================================== */
+
+.lounge-booking-box {
+  width: 82.5%;
+  max-width: 1540px;
+  margin: 30px auto 0;
+  background: #fff;
+  padding: 40px 32px 30px;
+  border-radius: 17px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.07);
+}
+
+.direct-form-section {
+  margin-top: 40px;
+}
+
+/* ========================================
+   FORM GRID
+======================================== */
+
+.lounge-booking-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+/* ========================================
+   FIELDS
+======================================== */
+
+.booking-field {
+  height: 76px;
+  border: 1px solid #d8dde0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.booking-field:focus-within {
+  border-color: #0c3981;
+}
+
+.booking-field label {
+  margin-bottom: 2px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #07171c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.booking-field input,
+.booking-field select {
+  width: 100%;
+  height: 32px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 16px;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.booking-field select {
+  cursor: pointer;
+}
+
+.booking-field input::placeholder {
+  color: #94a3b8;
+}
+
+/* Disabled departure airport */
+
+.disabled-field {
+  background: #f8fafc;
+  opacity: 0.85;
+}
+
+.disabled-field input {
+  cursor: not-allowed;
+  color: #64748b;
+}
+
+/* ========================================
+   BOOK BUTTON
+======================================== */
+
+.booking-button-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.lounge-final-book-btn {
+  width: 320px;
+  height: 60px;
+  border: none;
+  border-radius: 8px;
+  background: #0c3981;
+  color: #fff;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(12, 57, 129, 0.2);
+}
+
+.lounge-final-book-btn:hover {
+  background: #09285c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(12, 57, 129, 0.3);
+}
+
+.lounge-final-book-btn:disabled {
+  background: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ========================================
+   LOADING
+======================================== */
+
+.lounge-details-loading {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  color: #0c3981;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1100px) {
+  .lounge-booking-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lounge-detail-header h1 {
+    font-size: 32px;
+  }
+
+  .lounge-detail-price strong {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-summary-bar {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .lounge-detail-slider {
+    height: 180px;
+  }
+
+  .detail-slider-card {
+    width: 90%;
+    height: 170px;
+  }
+
+  .lounge-detail-header {
+    width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .lounge-detail-price {
+    text-align: left;
+  }
+
+  .lounge-detail-header h1 {
+    font-size: 26px;
+  }
+
+  .lounge-detail-price strong {
+    font-size: 30px;
+  }
+
+  .lounge-booking-box {
+    width: 90%;
+    margin-top: 30px;
+    padding: 25px 18px;
+  }
+
+  .lounge-booking-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-button-row {
+    justify-content: stretch;
+  }
+
+  .lounge-final-book-btn {
+    width: 100%;
+  }
+}

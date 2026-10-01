@@ -1,0 +1,211 @@
+.navbar-header {
+  width: 100%;
+  background-color: #ffffff;
+  font-family: system-ui, -apple-system, sans-serif;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Top Bar --- */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px; /* زيادة الهوامش لتكبير الشريط */
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Call Info */
+.call-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.call-info .phone-icon {
+  background-color: #0c3981;
+  color: #ffffff;
+  width: 44px; /* تكبير أيقونة الهاتف */
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.phone-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-text .label {
+  font-size: 15px; /* تكبير الخط */
+  color: #4a5568;
+}
+
+.phone-text .numbers {
+  font-size: 17px; /* تكبير أرقام الهاتف */
+  font-weight: 600;
+  color: #2d3748;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+/* Select Styling inside Dropdown buttons */
+.custom-select {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2d3748;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Dark Mode Styles */
+.navbar-header.dark-theme {
+  background-color: #1a202c;
+  color: #ffffff;
+}
+
+.navbar-header.dark-theme .nav-links a,
+.navbar-header.dark-theme .phone-text .numbers,
+.navbar-header.dark-theme .dropdown-btn,
+.navbar-header.dark-theme .custom-select,
+.navbar-header.dark-theme .icon-btn {
+  color: #ffffff;
+}
+
+.navbar-header.dark-theme .dropdown-btn {
+  border-color: #4a5568;
+  background-color: #2d3748;
+}
+
+.navbar-header.dark-theme .custom-select option {
+  background-color: #2d3748;
+  color: #ffffff;
+}
+
+.navbar-header.dark-theme .search-box {
+  background-color: #2d3748;
+}
+
+.navbar-header.dark-theme .search-box input {
+  color: #ffffff;
+}
+.logo-img {
+  height: 100px; /* تكبير حجم اللوجو */
+  object-fit: contain;
+  width: 250px; /* تكبير حجم اللوجو */
+}
+
+/* Top Actions */
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.dropdown-btn {
+  border: 1px solid #cbd5e1;
+  border-radius: 24px;
+  padding: 10px 18px; /* تكبير أزرار القوائم */
+  font-size: 16px;    /* تكبير الخط */
+  font-weight: 500;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 22px; /* تكبير أيقونات السلة والوضع الداكن */
+  cursor: pointer;
+  color: #2d3748;
+  padding: 6px;
+}
+
+.sign-up-btn {
+  background-color: #4c535f;
+  color: #ffffff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 28px; /* تكبير زر Sign Up */
+  font-size: 17px;    /* تكبير الخط */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sign-up-btn:hover {
+  background-color: #2d3748;
+}
+
+.nav-divider {
+  border: none;
+  border-bottom: 1px solid #e2e8f0;
+  margin: 0;
+}
+
+/* --- Bottom Bar --- */
+.bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px; /* زيادة مساحة الشريط السفلي */
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px; /* زيادة المسافة بين اللينكات */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 18px; /* تكبير خط روابط القائمة الرئيسية */
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #0c3981;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #eef2f6;
+  border-radius: 24px;
+  padding: 10px 20px; /* تكبير حقل البحث */
+  width: 320px;        /* زيادة العرض */
+  gap: 10px;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 15px; /* تكبير النص داخل مربع البحث */
+  color: #2d3748;
+}
+
+.search-shortcut {
+  background-color: transparent;
+  color: #94a3b8;
+  font-size: 13px;
+  border: none;
+  white-space: nowrap;
+}

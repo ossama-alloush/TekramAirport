@@ -1,0 +1,982 @@
+/* =========================================================
+   MEET & GREET DETAILS
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.details-container {
+  width: 100%;
+  background: #ffffff;
+  color: #07171c;
+  font-family: "Poppins", Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* =========================================================
+   TOP HEADER / BREADCRUMB
+   ========================================================= */
+
+.details-header {
+  width: 100%;
+  height: 164px;
+  background: #f2f1dc;
+  padding: 43px max(7.5%, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.details-header h2 {
+  margin: 0 0 8px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #06181d;
+  letter-spacing: -0.7px;
+}
+
+.details-header p {
+  margin: 0;
+  font-size: 17px;
+  color: #5f6970;
+  font-weight: 400;
+}
+
+.details-header p::first-line {
+  color: #07171c;
+}
+
+/* =========================================================
+   PACKAGE CAROUSEL
+   ========================================================= */
+
+.package-carousel {
+  width: 100%;
+  max-width: 1410px;
+  height: 335px;
+  margin: 10px auto 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-grid {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+}
+
+/* =========================================================
+   PACKAGE CARDS
+   ========================================================= */
+
+.tier-card {
+  width: 425px;
+  height: 245px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Silver image */
+.tier-card:nth-child(1) {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.68),
+      rgba(255, 255, 255, 0.68)
+    ),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ5jZM3nX34bvEOY3DzjI3XVCTyr8e-QzuupYH0Zy0Fg&s");
+}
+
+/* Gold / Center image */
+.tier-card:nth-child(2) {
+  width: 500px;
+  height: 290px;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80");
+  z-index: 2;
+}
+
+/* Elite image */
+.tier-card:nth-child(3),
+.tier-card:nth-child(4) {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.68),
+      rgba(255, 255, 255, 0.68)
+    ),
+    url("https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=80");
+}
+
+/* Active card */
+.tier-card.active {
+  transform: scale(1);
+  opacity: 1;
+  filter: none;
+  height: 290px;
+  width: 500px;
+}
+
+/* Side cards */
+.tier-card:not(.active) {
+  opacity: 0.72;
+  filter: saturate(0.55);
+}
+
+.tier-card:hover {
+  opacity: 1;
+  filter: none;
+}
+
+.tier-card-img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   CARD DARK OVERLAY
+   ========================================================= */
+
+.tier-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.02),
+    rgba(0, 0, 0, 0.3)
+  );
+  pointer-events: none;
+}
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.card-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.card-content h3 {
+  margin: 0 0 35px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.card-btn {
+  border: none;
+  outline: none;
+  background: #2d4b7e;
+  color: #ffffff;
+  padding: 8px 22px;
+  min-width: 105px;
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.25s ease;
+}
+
+.card-btn.red {
+  background: #0c3981;
+}
+
+.card-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.95);
+}
+
+/* =========================================================
+   PRICE TAG INSIDE CARD
+   ========================================================= */
+
+.price-tag {
+  position: absolute;
+  left: 18px;
+  bottom: 13px;
+  z-index: 3;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.price-tag span {
+  display: block;
+  font-size: 23px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+/* =========================================================
+   CAROUSEL ARROWS
+   ========================================================= */
+
+.nav-arrow {
+  width: 73px;
+  height: 73px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.25s ease;
+}
+
+.nav-arrow.left {
+  left: 0;
+  background: #ffffff;
+  color: #07171c;
+}
+
+.nav-arrow.right {
+  right: 0;
+  background: #0c3981;
+  color: #ffffff;
+}
+
+.nav-arrow:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* =========================================================
+   PACKAGE INFORMATION
+   ========================================================= */
+
+.package-info-section {
+  width: 100%;
+  max-width: 1410px;
+  margin: 15px auto 0;
+  padding: 0 20px 28px;
+  position: relative;
+}
+
+.package-info-section h2 {
+  margin: 0;
+  font-size: 43px;
+  line-height: 1.2;
+  color: #07171c;
+  font-weight: 700;
+  letter-spacing: -1.1px;
+}
+
+.main-price {
+  position: absolute;
+  right: 20px;
+  top: 2px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  color: #5e6265;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.main-price strong {
+  color: #07171c;
+  font-size: 42px;
+  font-weight: 700;
+  margin-top: 3px;
+}
+
+/* =========================================================
+   SUMMARY / EDIT DETAILS BAR (OPTIONAL ADDITION)
+   ========================================================= */
+
+.booking-summary-bar {
+  width: 100%;
+  max-width: 1410px;
+  margin: 20px auto 0;
+  padding: 16px 24px;
+  background: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.booking-summary-bar button {
+  transition: all 0.2s ease;
+}
+
+.booking-summary-bar button:hover {
+  background: #007bff !important;
+  color: #fff !important;
+}
+
+/* =========================================================
+   INCLUSIONS
+   ========================================================= */
+
+.inclusions-row {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+  font-size: 17px;
+  flex-wrap: wrap;
+}
+
+.inclusions-row span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.not-included {
+  color: #172127;
+}
+
+.not-included svg {
+  color: #f12f34;
+}
+
+.included {
+  color: #172127;
+}
+
+.included svg {
+  color: #39b54a;
+}
+
+/* =========================================================
+   FLIGHT META DATA
+   ========================================================= */
+
+.meta-details-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 42px;
+  padding-bottom: 27px;
+  border-bottom: 1px solid #dddddd;
+  color: #10191d;
+  font-size: 18px;
+  flex-wrap: wrap;
+}
+
+.meta-details-bar span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.meta-details-bar svg {
+  font-size: 18px;
+}
+
+/* =========================================================
+   DETAILS BODY
+   ========================================================= */
+
+.details-body {
+  width: 100%;
+  max-width: 1410px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 50px;
+}
+
+/* =========================================================
+   ABOUT SERVICE
+   ========================================================= */
+
+.about-service {
+  padding-top: 0;
+}
+
+.about-service h3 {
+  margin: 0 0 25px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #07171c;
+}
+
+.about-service ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about-service li {
+  margin-bottom: 12px;
+  color: #686e72;
+  font-size: 17px;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 20px;
+}
+
+.about-service li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #0c3981;
+  font-weight: bold;
+}
+
+.notice {
+  margin-top: 20px;
+  color: #0c3981;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #f0f4f9;
+  padding: 14px 18px;
+  border-radius: 8px;
+}
+
+/* =========================================================
+   CHECKOUT CARD
+   ========================================================= */
+
+.checkout-card {
+  width: 100%;
+  background: #e9eaed;
+  border-radius: 12px;
+  padding: 28px 30px 27px;
+  min-height: 355px;
+}
+
+.checkout-card .label {
+  margin: 0;
+  font-size: 20px;
+  color: #555d62;
+}
+
+.checkout-card .price {
+  margin-top: 3px;
+  color: #07171c;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   CAR SELECT BUTTON
+   ========================================================= */
+
+.car-select-trigger {
+  width: 100%;
+  height: 66px;
+  margin-top: 24px;
+  border: none;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #555f65;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0 25px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+}
+
+.car-select-trigger svg {
+  font-size: 23px;
+  color: #34516b;
+}
+
+.car-select-trigger:hover {
+  background: #f8f8f8;
+  border-color: #cbd5e1;
+}
+
+/* =========================================================
+   ADD TO CART / BOOK NOW
+   ========================================================= */
+
+.add-to-cart-btn {
+  width: 100%;
+  height: 80px;
+  margin-top: 28px;
+  border: none;
+  border-radius: 9px;
+  background: #0c3981;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.25s ease;
+  box-shadow: 0 4px 12px rgba(12, 57, 129, 0.25);
+}
+
+.add-to-cart-btn:hover {
+  background: #09285c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(12, 57, 129, 0.35);
+}
+
+.add-to-cart-btn:disabled {
+  background: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.add-to-cart-btn > span:first-child {
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.add-to-cart-btn .subtotal {
+  height: 48px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   CAR MODAL
+   ========================================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal-container {
+  position: relative;
+  width: min(1200px, 92vw);
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 14px;
+  padding: 40px 45px;
+  overflow-y: auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-container > h2 {
+  margin: 0 0 30px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #07171c;
+}
+
+/* CAR SLIDER IN MODAL */
+
+.modal-car-slider {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.car-card-active {
+  position: relative;
+  width: 500px;
+  height: 280px;
+  text-align: center;
+  z-index: 3;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.car-card-active img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.car-card-active h3 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  z-index: 5;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.car-card-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+/* BADGE INCLUDED */
+
+.badge-included {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 92px;
+  height: 92px;
+  background: #0c3981;
+  color: white;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  z-index: 8;
+  font-size: 0;
+}
+
+.badge-included::after {
+  content: "Included";
+  position: absolute;
+  top: 25px;
+  left: 3px;
+  width: 82px;
+  transform: rotate(-45deg);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* MODAL ARROWS */
+
+.modal-nav {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.modal-nav.left {
+  left: calc(50% - 310px);
+  background: #0c3981;
+  color: white;
+}
+
+.modal-nav.right {
+  right: calc(50% - 310px);
+  background: #0c3981;
+  color: white;
+}
+
+.modal-nav:hover {
+  transform: translateY(-50%) scale(1.08);
+  background: #09285c;
+}
+
+/* CAR DETAILS & SPECS */
+
+.car-details {
+  margin-top: 32px;
+}
+
+.car-details h3 {
+  margin: 0 0 18px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #07171c;
+}
+
+.car-specs {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 25px;
+  color: #4e5559;
+  font-size: 16px;
+  flex-wrap: wrap;
+}
+
+.car-specs span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.car-specs svg {
+  color: #0c3981;
+  font-size: 18px;
+}
+
+.car-desc {
+  margin: 0 0 25px;
+  color: #62696d;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* LOCATION PICKER & CONTROLS */
+
+.location-picker {
+  width: 100%;
+  margin-bottom: 18px;
+  border: 1px solid #d9dde0;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.location-picker label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #07171c;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.location-picker select {
+  width: 100%;
+  height: 32px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #334155;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.car-count-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.car-count-row > span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #07171c;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qty-controls button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #0c3981;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.qty-controls button:hover {
+  background: #09285c;
+}
+
+.qty-controls span {
+  min-width: 50px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: white;
+  font-weight: 600;
+}
+
+/* MODAL ACTIONS */
+
+.modal-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.modal-actions button {
+  flex: 1;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-add {
+  background: #0c3981;
+  color: #ffffff;
+}
+
+.btn-add:hover {
+  background: #09285c;
+}
+
+.btn-close {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.btn-close:hover {
+  background: #e2e8f0;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1100px) {
+  .details-body {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .package-info-section h2 {
+    font-size: 34px;
+  }
+
+  .main-price {
+    position: relative;
+    right: 0;
+    top: 0;
+    margin-top: 15px;
+    text-align: left;
+  }
+
+  .main-price strong {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 900px) {
+  .card-grid {
+    gap: 15px;
+  }
+
+  .tier-card {
+    width: 300px;
+    height: 200px;
+  }
+
+  .tier-card.active,
+  .tier-card:nth-child(2) {
+    width: 360px;
+    height: 240px;
+  }
+
+  .modal-nav.left {
+    left: 20px;
+  }
+
+  .modal-nav.right {
+    right: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .details-header {
+    height: auto;
+    padding: 30px 20px;
+  }
+
+  .details-header h2 {
+    font-size: 28px;
+  }
+
+  .package-carousel {
+    height: auto;
+  }
+
+  .card-grid {
+    flex-direction: column;
+  }
+
+  .tier-card,
+  .tier-card.active,
+  .tier-card:nth-child(2) {
+    width: 100%;
+    height: 220px;
+  }
+
+  .nav-arrow {
+    display: none;
+  }
+
+  .modal-container {
+    width: 100%;
+    padding: 25px 18px;
+  }
+
+  .car-card-active {
+    width: 100%;
+    height: 200px;
+  }
+
+  .car-specs {
+    gap: 12px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+}

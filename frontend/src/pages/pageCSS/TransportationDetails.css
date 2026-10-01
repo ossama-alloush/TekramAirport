@@ -1,0 +1,775 @@
+/* =====================================================
+   PAGE & CONTAINER
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+.transport-details-page {
+  width: 100%;
+  background: #fff;
+  color: #071b1f;
+  font-family: "Poppins", Arial, sans-serif;
+  padding-bottom: 80px;
+}
+
+.transport-details-container {
+  width: 84%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   HERO / BREADCRUMB BANNER
+===================================================== */
+
+.transport-details-hero {
+  width: 100%;
+  background: #f2f1dc;
+  padding: 40px max(8%, 30px);
+  margin-bottom: 25px;
+}
+
+.transport-details-hero h1 {
+  margin: 0 0 8px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #071b1f;
+}
+
+.transport-details-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+}
+
+.transport-details-breadcrumb span:first-child {
+  color: #071b1f;
+  font-weight: 600;
+}
+
+.transport-details-breadcrumb span:last-child {
+  color: #748087;
+}
+
+.breadcrumb-line {
+  color: #071b1f !important;
+}
+
+/* =====================================================
+   CAR SLIDER (PAGE MAIN)
+===================================================== */
+
+.car-slider-section {
+  width: 86%;
+  max-width: 1450px;
+  margin: 15px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 320px;
+}
+
+.car-main-card {
+  width: 500px;
+  height: 285px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  z-index: 3;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.car-main-card img,
+.car-side-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.car-side-card {
+  width: 420px;
+  height: 245px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  opacity: 0.4;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.left-card {
+  margin-right: -25px;
+}
+
+.right-card {
+  margin-left: -25px;
+}
+
+.car-main-overlay,
+.car-side-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.car-side-overlay {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.car-main-content,
+.car-side-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.car-main-content h3,
+.car-side-content h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.car-main-content button,
+.car-side-content button {
+  border: none;
+  background: #0c3981;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.car-main-content button:hover,
+.car-side-content button:hover {
+  background: #09285c;
+}
+
+.main-image-price,
+.side-price {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.main-image-price span,
+.side-price span {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.main-image-price strong,
+.side-price strong {
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.car-slider-arrow {
+  width: 64px;
+  height: 64px;
+  border: none;
+  border-radius: 50%;
+  background: #0c3981;
+  color: white;
+  font-size: 32px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.car-slider-arrow.left {
+  left: calc(50% - 380px);
+}
+
+.car-slider-arrow.right {
+  right: calc(50% - 380px);
+}
+
+.car-slider-arrow:hover {
+  background: #09285c;
+  transform: translateY(-50%) scale(1.06);
+}
+
+/* =====================================================
+   CAR INFORMATION
+===================================================== */
+
+.car-information {
+  width: 84%;
+  max-width: 1450px;
+  margin: 35px auto 0;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.car-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.car-title-row h2 {
+  margin: 0;
+  font-size: 38px;
+  font-weight: 700;
+  color: #071b1f;
+}
+
+.car-starting-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 190px;
+}
+
+.car-starting-price span {
+  font-size: 16px;
+  color: #6c757d;
+}
+
+.car-starting-price strong {
+  font-size: 40px;
+  color: #0c3981;
+}
+
+.car-features {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.car-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  color: #334155;
+  font-weight: 500;
+}
+
+.car-feature svg {
+  color: #0c3981;
+  font-size: 20px;
+}
+
+/* =====================================================
+   BOOKING SUMMARY BAR (EDIT TRIP STATE)
+===================================================== */
+
+.booking-summary-bar {
+  width: 84%;
+  max-width: 1350px;
+  margin: 25px auto 0;
+  padding: 16px 24px;
+  background: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.booking-summary-bar button {
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.booking-summary-bar button:hover {
+  background: #007bff !important;
+  color: #fff !important;
+}
+
+/* =====================================================
+   BOOKING BOX
+===================================================== */
+
+.car-booking-box {
+  width: 84%;
+  max-width: 1350px;
+  margin: 40px auto 40px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 45px 35px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+/* =====================================================
+   TRIP BUTTONS
+===================================================== */
+
+.trip-type-buttons {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.trip-btn {
+  border: 1px solid #cbd5e1;
+  background: #f1f5f9;
+  color: #334155;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.trip-btn svg {
+  font-size: 14px;
+}
+
+.trip-btn.active {
+  background: #0c3981;
+  color: white;
+  border-color: #0c3981;
+}
+
+.trip-btn:hover:not(.active) {
+  background: #e2e8f0;
+}
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.car-booking-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+/* =====================================================
+   FIELDS
+===================================================== */
+
+.car-field {
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  min-height: 72px;
+  box-sizing: border-box;
+}
+
+.car-field:focus-within {
+  border-color: #0c3981;
+  box-shadow: 0 0 0 1px #0c3981;
+}
+
+.car-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.car-field select,
+.car-field input {
+  width: 100%;
+  height: 28px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-family: inherit;
+  font-size: 15px;
+  color: #1e293b;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+.car-field select option {
+  color: #333;
+  background: #fff;
+}
+
+/* =====================================================
+   DISABLED / FIXED AIRPORT FIELD
+===================================================== */
+
+.car-field.disabled {
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.car-field.disabled label {
+  color: #64748b;
+}
+
+.car-field.disabled .field-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.car-field.disabled .field-input svg {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* =====================================================
+   DATE FIELD
+===================================================== */
+
+.date-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.date-input input {
+  padding-right: 25px;
+}
+
+.date-input svg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+  font-size: 16px;
+}
+
+/* =====================================================
+   BOOK BUTTON
+===================================================== */
+
+.car-book-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.car-final-book-btn {
+  width: 260px;
+  height: 56px;
+  border: none;
+  border-radius: 8px;
+  background: #0c3981;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(12, 57, 129, 0.2);
+}
+
+.car-final-book-btn:hover {
+  background: #09285c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(12, 57, 129, 0.3);
+}
+
+.car-final-book-btn:disabled {
+  background: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =====================================================
+   MODAL & CAR SLIDER INSIDE MODAL (تنسيق المودال)
+===================================================== */
+
+.modal-overlay {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* حاوية السلايدر داخل المودال */
+.modal-car-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+  margin: 15px 0 25px;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+/* الكروت الجانبية أصغر حجماً وشفافة قليلاً */
+.modal-car-slider .car-card-side {
+  flex: 0 0 25%;
+  height: 120px;
+  opacity: 0.55;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.modal-car-slider .car-card-side:hover {
+  opacity: 0.85;
+  transform: scale(0.95);
+}
+
+.modal-car-slider .car-card-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-car-slider .car-card-side h3 {
+  position: absolute;
+  bottom: 0;
+  inset-x: 0;
+  margin: 0;
+  padding: 6px 4px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* الكارت الرئيسي المميز في المنتصف */
+.modal-car-slider .car-card-active {
+  flex: 0 0 45%;
+  height: 200px;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(12, 57, 129, 0.22);
+  border: 2px solid #0c3981;
+  background: #fff;
+  transition: all 0.3s ease;
+  text-align: center;
+  z-index: 2;
+}
+
+.modal-car-slider .car-card-active img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-car-slider .car-card-active h3 {
+  position: absolute;
+  bottom: 0;
+  inset-x: 0;
+  margin: 0;
+  padding: 10px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.75) 100%);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* أسهم التنقل داخل المودال */
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(12, 57, 129, 0.9);
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.modal-nav:hover {
+  background: #0c3981;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.modal-nav.left {
+  left: 5px;
+}
+
+.modal-nav.right {
+  right: 5px;
+}
+
+/* =====================================================
+   NOT FOUND & RESPONSIVE
+===================================================== */
+
+.transport-not-found {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.transport-not-found button {
+  border: none;
+  background: #0c3981;
+  color: white;
+  padding: 13px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+  .car-slider-arrow.left {
+    left: 20px;
+  }
+
+  .car-slider-arrow.right {
+    right: 20px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .car-booking-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .car-side-card {
+    display: none;
+  }
+
+  .car-main-card {
+    width: 600px;
+  }
+
+  .car-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .car-starting-price {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .transport-details-hero {
+    padding: 30px 20px;
+  }
+
+  .transport-details-container,
+  .car-information,
+  .car-booking-box,
+  .booking-summary-bar {
+    width: 92%;
+    padding: 25px 20px;
+  }
+
+  .booking-summary-bar {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .car-main-card {
+    width: 100%;
+    height: 240px;
+  }
+
+  .car-title-row h2 {
+    font-size: 28px;
+  }
+
+  .car-starting-price strong {
+    font-size: 32px;
+  }
+
+  .car-booking-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-type-buttons {
+    flex-direction: column;
+  }
+
+  .car-final-book-btn {
+    width: 100%;
+  }
+
+  /* الاستجابة للمودال في الشاشات الصغرى */
+  .modal-car-slider .car-card-side {
+    display: none;
+  }
+
+  .modal-car-slider .car-card-active {
+    flex: 0 0 85%;
+    height: 180px;
+  }
+}

@@ -1,0 +1,205 @@
+.places-section {
+  background:
+    linear-gradient(
+      90deg,
+      #fffdf0,
+      #f5f2d8,
+      #fffdf0
+    );
+
+  padding:
+    70px
+    max(20px, calc((100% - 1080px) / 2));
+
+  text-align: center;
+}
+
+
+/* Places */
+
+.places-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-top: 38px;
+}
+
+.place-card {
+  height: 210px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+
+  background: #bfc1bd;
+}
+
+.place-card img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.place-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding: 15px;
+
+  color: white;
+
+  text-align: left;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.02),
+      rgba(0, 0, 0, 0.45)
+    );
+}
+
+.place-overlay > span {
+  text-align: center;
+
+  font-size: 22px;
+
+  opacity: 0.8;
+}
+
+.place-overlay button {
+  position: absolute;
+
+  right: 10px;
+  bottom: 10px;
+
+  width: 26px;
+  height: 26px;
+
+  border-radius: 50%;
+
+  border: 0;
+
+  background: white;
+
+  color: #39424d;
+}
+
+
+/* Testimonials */
+
+.testimonials {
+  margin-top: 85px;
+  width: 1100px;
+}
+
+.testimonial-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 10px;
+
+  margin-top: 35px;
+
+  text-align: left;
+}
+
+.testimonial-card {
+  background: white;
+
+  border-radius: 8px;
+
+  padding: 16px;
+
+  min-height: 190px;
+
+}
+
+.quote {
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+
+.testimonial-card p {
+  color: #65707c;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  min-height: 55px;
+}
+
+.mini-logo {
+  color: #152b69;
+
+  font-size: 17px;
+
+  margin: 10px 0;
+}
+
+.testimonial-user {
+  border-top:
+    1px solid #eef0f3;
+
+  padding-top: 9px;
+
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+.testimonial-user span {
+  float: right;
+
+  color: #9ba2ac;
+
+  font-weight: normal;
+
+  font-size: 12px;
+}
+
+
+@media (max-width: 900px) {
+
+  .testimonial-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .places-section {
+    padding: 50px 12px;
+  }
+
+  .places-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
