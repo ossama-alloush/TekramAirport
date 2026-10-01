@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // 1. Estaghlal useNavigate
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./pageCSS/MeetandGreet.css";
@@ -10,7 +10,8 @@ import platinum from "../assets/platinum.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExchangeAlt, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
-// خريطة صور محلية للاستعانة بها في حال كان الرابط قادماً باسم الصورة أو مسار نسبي
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 const imageMap = {
   gold,
   transit,
@@ -19,7 +20,7 @@ const imageMap = {
 };
 
 const MeetandGreet = () => {
-  const navigate = useNavigate(); // Hook lal-tanaghol bain al-safahat
+  const navigate = useNavigate();
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -37,7 +38,7 @@ const MeetandGreet = () => {
     const fetchServices = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:5000/api/meet-and-greet");
+        const response = await fetch(`${API_BASE_URL}/api/meet-and-greet`);
         if (!response.ok) {
           throw new Error("Failed to fetch Meet & Greet services");
         }
@@ -61,7 +62,6 @@ const MeetandGreet = () => {
     }));
   };
 
-  // دالة المساعدة للحصول على مصدر الصورة المناسب
   const getImageSource = (img) => {
     if (!img) return gold;
     if (img.startsWith("http://") || img.startsWith("https://")) {
@@ -70,7 +70,6 @@ const MeetandGreet = () => {
     return imageMap[img] || gold;
   };
 
-  // دالة الفلترة الشاملة
   const filteredServices = services.filter((service) => {
     if (filters.car && !service.car) return false;
     if (filters.lounge && !service.lounge) return false;
@@ -91,7 +90,6 @@ const MeetandGreet = () => {
     return true;
   });
 
-  // Function la-tahweel al-mukhdim 3ala safhet al-details ma3 el-ID w al-Data
   const handleBookNow = (service) => {
     navigate(`/heroSection`, { state: { service } });
   };

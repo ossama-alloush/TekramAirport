@@ -6,18 +6,22 @@ import loungeImg from "../assets/lounge.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner, faSlidersH } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 const Lounges = () => {
   const [loungesData, setLoungesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedHours, setSelectedHours] = useState([]);
-const navigate = useNavigate();
+  const navigate = useNavigate();
+
   // Fetch Lounges Data from Backend API
   useEffect(() => {
     const fetchLounges = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:5000/api/lounges");
+        const response = await fetch(`${API_BASE_URL}/api/lounges`);
         if (!response.ok) {
           throw new Error("Failed to fetch lounges data");
         }
@@ -135,11 +139,11 @@ const navigate = useNavigate();
                           </div>
 
                           <button
-  className="lounges-book-btn"
-  onClick={() => navigate(`/lounge-details`, { state: { lounge } })}
->
-  Book Now
-</button>
+                            className="lounges-book-btn"
+                            onClick={() => navigate(`/lounge-details`, { state: { lounge } })}
+                          >
+                            Book Now
+                          </button>
                         </div>
                       </div>
                     </div>

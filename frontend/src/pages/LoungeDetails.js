@@ -3,14 +3,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import loungeImg from "../assets/lounge.webp";
-import { createClient } from "@supabase/supabase-js";
 import "./pageCSS/LoungeDetails.css";
 
-const supabaseUrl = "https://jujiylsufgygferkchhn.supabase.co";
-const supabaseAnonKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1aml5bHN1Zmd5Z2ZlcmtjaGhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA2NjQ1OTYsImV4cCI6MjEwNjI0MDU5Nn0.n9hHtuBKbtStt_ZzozOwglugUIocCJ-QpmHtKBIR1hw";
-
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const LoungeDetails = () => {
   const location = useLocation();
@@ -110,16 +105,27 @@ const LoungeDetails = () => {
     setLoading(true);
 
     try {
+      const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+
       // Parse numeric price without currency symbols
       const numericPrice = typeof lounge.price === "number" 
         ? lounge.price 
         : parseFloat(lounge.price) || 0;
 
-      const { data, error } = await supabase.from("bookings").insert([
-        {
-          service_type: "lounge",
-          booking_type: lounge?.title || "Lounge Booking",
-          details: {
+      const response = await fetch(`${API_BASE_URL}/api/bookings`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(token && { Authorization: `Bearer ${token}` }),
+        },
+        body: JSON.stringify({
+          serviceType: "lounge",
+          bookingType: lounge?.title || "Lounge Booking",
+          totalGuests: Number(formData.guests),
+          totalPrice: numericPrice,
+          total_price: numericPrice,
+          amount: numericPrice,
+          formData: {
             price: numericPrice,
             lounge_title: lounge?.title,
             lounge_price: numericPrice,
@@ -132,12 +138,16 @@ const LoungeDetails = () => {
             totalGuests: Number(formData.guests),
             guests: formData.guests,
           },
-        },
-      ]);
+        }),
+      });
 
-      if (error) throw error;
+      const resData = await response.json();
 
-      alert("تم الحجز بنجاح وحفظ البيانات في Supabase!");
+      if (!response.ok) {
+        throw new Error(resData.error || "Failed to submit booking");
+      }
+
+      alert("Lounge booking created successfully!");
       navigate("/cart");
     } catch (error) {
       console.error("Error booking lounge:", error);

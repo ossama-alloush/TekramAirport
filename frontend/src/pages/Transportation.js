@@ -11,6 +11,8 @@ import {
   faSpinner
 } from "@fortawesome/free-solid-svg-icons";
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 const Transportation = () => {
   const [carsData, setCarsData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,13 +20,14 @@ const Transportation = () => {
 
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [selectedFeatures, setSelectedFeatures] = useState([]);
-const navigate = useNavigate();
+  const navigate = useNavigate();
+
   // 1. Fetching Data from Backend API
   useEffect(() => {
     const fetchCars = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:5000/api/transportation");
+        const response = await fetch(`${API_BASE_URL}/api/transportation`);
         if (!response.ok) {
           throw new Error("Failed to fetch transportation data");
         }
@@ -193,15 +196,15 @@ const navigate = useNavigate();
                           </div>
 
                           <button
-  className="trans-book-btn"
-  onClick={() =>
-    navigate("/transportation-details", {
-      state: { car }
-    })
-  }
->
-  Book Now
-</button>
+                            className="trans-book-btn"
+                            onClick={() =>
+                              navigate("/transportation-details", {
+                                state: { car }
+                              })
+                            }
+                          >
+                            Book Now
+                          </button>
                         </div>
                       </div>
                     </div>

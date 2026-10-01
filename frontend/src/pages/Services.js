@@ -5,6 +5,8 @@ import './pageCSS/Services.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 const Services = () => {
   const [servicesData, setServicesData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +16,7 @@ const Services = () => {
     const fetchServices = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/api/services');
+        const response = await fetch(`${API_BASE_URL}/api/services`);
         if (!response.ok) {
           throw new Error('Failed to fetch services data');
         }

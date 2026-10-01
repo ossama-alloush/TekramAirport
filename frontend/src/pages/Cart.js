@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faTrashAlt, faArrowRight, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faArrowRight, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import './pageCSS/Cart.css';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -37,17 +37,14 @@ const Cart = () => {
       const data = await response.json();
 
       const formattedItems = (Array.isArray(data) ? data : data.bookings || []).map((item) => {
-        // Parse details if stored as a stringified JSON
         const details = typeof item.details === "string" 
           ? JSON.parse(item.details) 
           : item.details || {};
 
-        // Fallback checks for form_data properties
         const formData = typeof item.form_data === "string" 
           ? JSON.parse(item.form_data) 
           : item.form_data || item.formData || details.formData || {};
 
-        // Extract price comprehensively across all potential field names and structure layers
         const rawPrice = 
           item.price ?? 
           item.totalPrice ?? 
@@ -68,7 +65,6 @@ const Cart = () => {
 
         const extractedPrice = Number(rawPrice) || 0;
 
-        // Extract passenger / guest count
         const passengers = 
           item.total_guests || 
           item.totalGuests || 
@@ -78,14 +74,12 @@ const Cart = () => {
           formData.totalGuests || 
           1;
 
-        // Dynamic Title formatting
         let serviceTitle = "Airport Service";
         const serviceType = item.service_type || item.serviceType || "";
         if (serviceType === "meet_and_greet") serviceTitle = "Airport Meet & Greet";
         else if (serviceType === "lounge") serviceTitle = "Lounge Service";
         else if (serviceType === "transportation") serviceTitle = "Airport Transportation";
 
-        // Dynamic Type formatting
         const serviceTypeOption = 
           item.booking_type || 
           item.bookingType || 
@@ -178,7 +172,6 @@ const Cart = () => {
             It looks like you haven't added any airport services to your cart yet. Browse our available services and make your journey smoother.
           </p>
           <Link to="/meet-and-greet" className="explore-btn">
-            <FontAwesomeIcon icon={faSearch} />
             <span>Explore Airport Services</span>
           </Link>
         </div>
