@@ -1,5 +1,8 @@
+
 .meet-greet-page {
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
   background: #fafafa;
   color: #252c38;
   font-family: Arial, sans-serif;
@@ -10,49 +13,50 @@
 }
 
 .meet-greet-container {
-  width: 85%; /* زيادة العرض لاستيعاب الأحجام الأكبر */
+  width: 85%;
   max-width: 1300px;
   margin: 0 auto;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .meet-greet-hero {
-  background: linear-gradient(
-    90deg,
-    #efeedc 0%,
-    #f7f7f7 100%
-  );
-  padding: 36px 0; /* تكبير المساحة */
+  background: linear-gradient(90deg, #efeedc 0%, #f7f7f7 100%);
+  padding: 36px 0;
 }
 
 .meet-greet-hero h1 {
   margin: 0 0 12px;
-  font-size: 32px; /* تكبير عنوان الصفحة */
+  font-size: 32px;
   font-weight: 700;
+  line-height: 1.3;
 }
 
 .meet-greet-breadcrumb {
   display: flex;
-  gap: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
   color: #6e7480;
-  font-size: 15px; /* تكبير المسار */
+  font-size: 15px;
 }
 
-/* ================= CONTENT ================= */
+/* CONTENT */
 
 .meet-greet-content {
   display: flex;
-  gap: 32px;
+  align-items: flex-start;
+  gap: 28px;
   padding: 40px 0 80px;
   min-height: 650px;
+  width: 100%;
 }
 
-/* ================= FILTER ================= */
+/* FILTER */
 
 .meet-greet-filter {
-  width: 270px; /* تكبير عرض الفلتر */
-  min-width: 270px;
+  flex: 0 0 270px;
+  width: 270px;
+  min-width: 0;
   height: fit-content;
   background: #fff;
   border: 1px solid #e1e4e8;
@@ -67,12 +71,12 @@
 }
 
 .meet-greet-filter-title span {
-  font-size: 20px; /* تكبير الأيقونة */
+  font-size: 20px;
 }
 
 .meet-greet-filter-title h3 {
   margin: 0;
-  font-size: 19px; /* تكبير عنوان الفلتر */
+  font-size: 19px;
   font-weight: 700;
 }
 
@@ -90,7 +94,7 @@
 
 .meet-greet-filter-section h4 {
   margin: 0 0 6px;
-  font-size: 16px; /* تكبير عناوين الأقسام */
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -98,19 +102,20 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 15px; /* تكبير نصوص الفلتر */
+  font-size: 15px;
   color: #4b525e;
   cursor: pointer;
 }
 
 .meet-greet-checkbox input {
-  width: 18px; /* تكبير مربع الخيار */
+  width: 18px;
   height: 18px;
-  accent-color: #0c3981; /* الأحمر ليناسب هوية الموقع */
+  flex-shrink: 0;
+  accent-color: #0c3981;
   cursor: pointer;
 }
 
-/* ================= SERVICES ================= */
+/* SERVICES */
 
 .meet-greet-services {
   flex: 1;
@@ -121,18 +126,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
   margin-bottom: 16px;
 }
 
 .meet-greet-services-top p {
   color: #727985;
-  font-size: 14px; /* تكبير نص رأس القائمة */
+  font-size: 14px;
   margin: 0;
 }
 
 .meet-greet-services-top button {
   width: 36px;
   height: 30px;
+  flex-shrink: 0;
   border: 1px solid #e0e2e5;
   border-radius: 6px;
   background: #fff;
@@ -140,17 +147,19 @@
   font-size: 14px;
 }
 
-/* ================= GRID ================= */
+/* GRID */
 
 .meet-greet-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+  width: 100%;
 }
 
-/* ================= CARD ================= */
+/* CARD */
 
 .meet-greet-card {
+  min-width: 0;
   overflow: hidden;
   background: white;
   border-radius: 12px;
@@ -164,7 +173,7 @@
 }
 
 .meet-greet-image {
-  height: 190px; /* تكبير ارتفاع الصورة */
+  height: 190px;
   position: relative;
   overflow: hidden;
 }
@@ -180,26 +189,29 @@
   position: absolute;
   top: 12px;
   left: 12px;
+  max-width: calc(100% - 24px);
   padding: 6px 12px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 6px;
-  font-size: 12px; /* تكبير نوع الخدمة فوق الصورة */
+  font-size: 12px;
   font-weight: 600;
   color: #333d4b;
 }
 
 .meet-greet-card-content {
-  padding: 18px; /* زيادة مساحة الكرت الداخلية */
+  padding: 18px;
 }
 
 .meet-greet-card-content h3 {
   margin: 0 0 14px;
-  font-size: 19px; /* تكبير عنوان الخدمة */
+  font-size: 19px;
   font-weight: 700;
   color: #242b35;
+  line-height: 1.4;
+  overflow-wrap: break-word;
 }
 
-/* ================= TAGS ================= */
+/* TAGS */
 
 .meet-greet-tags {
   display: flex;
@@ -210,9 +222,10 @@
 .meet-greet-tag {
   padding: 6px 10px;
   border-radius: 6px;
-  font-size: 12px; /* تكبير خط الوسوم (Included / Not Included) */
+  font-size: 12px;
   font-weight: 600;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .meet-greet-tag.included {
@@ -227,12 +240,13 @@
   border: 1px solid #f8d7da;
 }
 
-/* ================= CARD BOTTOM ================= */
+/* CARD BOTTOM */
 
 .meet-greet-card-bottom {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 10px;
   margin-top: 20px;
 }
 
@@ -240,84 +254,247 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
 }
 
 .meet-greet-price span {
-  font-size: 12px; /* تكبير Starting From */
+  font-size: 12px;
   color: #858b95;
 }
 
 .meet-greet-price strong {
-  font-size: 20px; /* تكبير السعر */
+  font-size: 20px;
   font-weight: 800;
   color: #1a202c;
+  overflow-wrap: anywhere;
 }
 
 .meet-greet-book-btn {
+  flex-shrink: 0;
   border: none;
-  background: #0c3981; /* تعديل الزر باللون الأحمر */
+  background: #0c3981;
   color: white;
-  padding: 10px 18px; /* تكبير زر Book Now */
+  padding: 10px 18px;
   border-radius: 20px;
-  font-size: 14px; /* تكبير خط الزر */
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .meet-greet-book-btn:hover {
-  background: #0c3981;
+  background: #092c65;
 }
 
-/* ================= NO RESULTS ================= */
+/* NO RESULTS */
 
 .meet-greet-no-results {
-  padding: 50px;
-  font-size: 16px; /* تكبير خط عدم وجود نتائج */
+  padding: 50px 20px;
+  font-size: 16px;
   text-align: center;
   background: white;
   border-radius: 10px;
   color: #666;
+  width: 100%;
 }
 
-/* ================= RESPONSIVE ================= */
+/* LARGE LAPTOP */
 
 @media (max-width: 1200px) {
   .meet-greet-container {
     width: 90%;
   }
-}
 
-@media (max-width: 1000px) {
-  .meet-greet-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
   .meet-greet-content {
-    flex-direction: column;
+    gap: 22px;
   }
 
   .meet-greet-filter {
-    width: 100%;
+    flex-basis: 245px;
+    width: 245px;
+    padding: 20px;
   }
 
   .meet-greet-grid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .meet-greet-card-content {
+    padding: 15px;
+  }
+
+  .meet-greet-book-btn {
+    padding: 9px 13px;
   }
 }
 
-@media (max-width: 500px) {
+/* TABLET */
+
+@media (max-width: 992px) {
+  .meet-greet-content {
+    gap: 20px;
+  }
+
+  .meet-greet-filter {
+    flex-basis: 220px;
+    width: 220px;
+    padding: 16px;
+  }
+
+  .meet-greet-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .meet-greet-image {
+    height: 180px;
+  }
+}
+
+/* SMALL TABLET & MOBILE */
+
+@media (max-width: 768px) {
   .meet-greet-container {
     width: 92%;
   }
 
-  .meet-greet-grid {
-    grid-template-columns: 1fr;
+  .meet-greet-hero {
+    padding: 28px 0;
   }
 
   .meet-greet-hero h1 {
-    font-size: 24px;
+    font-size: 27px;
+  }
+
+  .meet-greet-breadcrumb {
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .meet-greet-content {
+    flex-direction: column;
+    padding: 25px 0 50px;
+    gap: 25px;
+    min-height: auto;
+  }
+
+  .meet-greet-filter {
+    width: 100%;
+    flex: none;
+    padding: 20px;
+  }
+
+  .meet-greet-services {
+    width: 100%;
+  }
+
+  .meet-greet-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .meet-greet-image {
+    height: 170px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 576px) {
+  .meet-greet-container {
+    width: 92%;
+  }
+
+  .meet-greet-hero {
+    padding: 24px 0;
+  }
+
+  .meet-greet-hero h1 {
+    font-size: 23px;
+  }
+
+  .meet-greet-content {
+    padding: 22px 0 40px;
+    gap: 20px;
+  }
+
+  .meet-greet-filter {
+    padding: 17px;
+  }
+
+  .meet-greet-filter-title h3 {
+    font-size: 17px;
+  }
+
+  .meet-greet-filter-section h4 {
+    font-size: 15px;
+  }
+
+  .meet-greet-checkbox {
+    font-size: 14px;
+  }
+
+  .meet-greet-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .meet-greet-image {
+    height: 210px;
+  }
+
+  .meet-greet-card-content {
+    padding: 17px;
+  }
+
+  .meet-greet-card-content h3 {
+    font-size: 18px;
+  }
+
+  .meet-greet-card-bottom {
+    margin-top: 18px;
+  }
+
+  .meet-greet-price strong {
+    font-size: 19px;
+  }
+
+  .meet-greet-book-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .meet-greet-no-results {
+    padding: 35px 15px;
+    font-size: 14px;
+  }
+}
+
+/* VERY SMALL MOBILE */
+
+@media (max-width: 360px) {
+  .meet-greet-container {
+    width: 94%;
+  }
+
+  .meet-greet-hero h1 {
+    font-size: 21px;
+  }
+
+  .meet-greet-image {
+    height: 180px;
+  }
+
+  .meet-greet-card-bottom {
+    gap: 7px;
+  }
+
+  .meet-greet-book-btn {
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  .meet-greet-price strong {
+    font-size: 17px;
   }
 }

@@ -31,7 +31,7 @@ const ContactUs = () => {
           <span className="icon">📍</span>
           <div>
             <h4>Address</h4>
-            <p>Amman, Jordan - Queen Alia International Airport</p>
+            <p>Akkar, Lebanon - Reineh Mouawad International Airport</p>
           </div>
         </div>
 
@@ -39,7 +39,7 @@ const ContactUs = () => {
           <span className="icon">✉️</span>
           <div>
             <h4>Email Address</h4>
-            <p>Reservations@Tikram.jo</p>
+            <p>Reservations@Tekram.lb</p>
           </div>
         </div>
 
@@ -47,7 +47,7 @@ const ContactUs = () => {
           <span className="icon">📞</span>
           <div>
             <h4>Contact Info</h4>
-            <p>07 9899 7000</p>
+            <p>81 330 304</p>
           </div>
         </div>
 
@@ -55,7 +55,7 @@ const ContactUs = () => {
           <span className="icon">🎧</span>
           <div>
             <h4>Suggestions And Complaint</h4>
-            <p>support@Tikram.jo</p>
+            <p>support@Tekram.lb</p>
           </div>
         </div>
       </div>
