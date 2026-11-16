@@ -70,7 +70,7 @@ function Footer() {
 
           <p>
             Airport Services,
-            Amman, Jordan
+            Akkar, Lebanon
           </p>
 
           <p>
@@ -78,7 +78,7 @@ function Footer() {
           </p>
 
           <p>
-            +962 7 0000 0000
+            +961 81 330 304 / +961 81 343 686
           </p>
 
         </div>
