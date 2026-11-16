@@ -1,10 +1,13 @@
+
 /* ==========================================
-   HERO SECTION CONTAINER & OVERLAY
+   HERO SECTION
 ========================================== */
+
 .hero {
   min-height: 650px;
   position: relative;
-  background: url("https://www.businessnews.com.lb/cms/Portals/2/Banking/803295278..jpeg") center / cover;
+  background: url("https://www.businessnews.com.lb/cms/Portals/2/Banking/803295278..jpeg")
+    center / cover no-repeat;
 }
 
 .hero-overlay {
@@ -18,7 +21,10 @@
   );
 }
 
-/* Hero Content */
+/* ==========================================
+   HERO CONTENT
+========================================== */
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -28,7 +34,8 @@
   color: white;
 }
 
-.eyebrow {
+.eyebrow,
+.eyebrow1 {
   text-transform: uppercase;
   font-size: 18px;
   letter-spacing: 2px;
@@ -36,11 +43,9 @@
 }
 
 .eyebrow1 {
-  text-transform: uppercase;
-  font-size: 18px;
-  letter-spacing: 2px;
-  opacity: 0.85;
   color: #ffffff !important;
+  max-width: 550px;
+  line-height: 1.7;
 }
 
 .hero h1 {
@@ -56,8 +61,9 @@
 }
 
 /* ==========================================
-   BOOKING BOX CONTAINER
+   BOOKING BOX
 ========================================== */
+
 .booking-box {
   position: absolute;
   z-index: 4;
@@ -74,10 +80,12 @@
 }
 
 /* ==========================================
-   SERVICE TABS (Meet & Greet, Lounge, etc.)
+   SERVICE TABS
 ========================================== */
+
 .service-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 28px;
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 14px;
@@ -88,7 +96,7 @@
   background: none;
   border: none;
   font-weight: 700;
-  font-size: 17px; /* تكبير خط التبويبات الرئيسية */
+  font-size: 17px;
   color: #374151;
   cursor: pointer;
   padding-bottom: 8px;
@@ -101,14 +109,16 @@
 
 .service-tabs button.active {
   color: #0c3981;
-  border-bottom: 3px solid #0c3981 ;
+  border-bottom: 3px solid #0c3981;
 }
 
 /* ==========================================
-   RADIO BUTTONS TABS (Arrival, Departure, Transfer)
+   BOOKING TYPE TABS
 ========================================== */
+
 .booking-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 14px;
   margin-bottom: 24px;
 }
@@ -117,12 +127,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 22px; /* تكبير حجم الأزرار */
+  padding: 10px 22px;
   border-radius: 8px;
   border: none;
   background-color: #d1d5db;
   color: #1f2937;
-  font-size: 15px; /* تكبير خط الأزرار الفرعية */
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -136,24 +146,27 @@
 .radio-circle {
   width: 12px;
   height: 12px;
+  flex-shrink: 0;
   border-radius: 50%;
   border: 2px solid white;
   display: inline-block;
 }
 
 /* ==========================================
-   GRID & INPUT FIELDS
+   BOOKING FORM GRID
 ========================================== */
+
 .booking-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px 18px; /* توسيع المسافات بين الحقول */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px 18px;
   align-items: flex-end;
 }
 
 .booking-grid label {
+  min-width: 0;
   color: #111827;
-  font-size: 16px; /* تكبير خط العناوين فوق الحقول */
+  font-size: 16px;
   font-weight: 700;
   display: flex;
   flex-direction: column;
@@ -164,13 +177,14 @@
 .booking-grid select,
 .guest-picker-btn {
   width: 100%;
-  height: 48px; /* تكبير ارتفاع المدخلات */
+  min-width: 0;
+  height: 48px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   background: #ffffff;
   padding: 0 14px;
   color: #1f2937;
-  font-size: 15px; /* تكبير خط الكلمات داخل الحقول */
+  font-size: 15px;
   outline: none;
   box-sizing: border-box;
   transition: border-color 0.2s ease;
@@ -188,15 +202,17 @@
 }
 
 /* ==========================================
-   GUEST SELECTOR DROPDOWN
+   GUEST SELECTOR
 ========================================== */
+
 .guest-selector-container {
   position: relative;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
   color: #111827;
-  font-size: 16px; /* تكبير الخط */
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -205,6 +221,7 @@
   display: flex;
   align-items: center;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .guest-dropdown-menu {
@@ -212,6 +229,7 @@
   top: 100%;
   left: 0;
   width: 280px;
+  max-width: calc(100vw - 40px);
   background: white;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
@@ -219,12 +237,14 @@
   padding: 18px;
   z-index: 100;
   margin-top: 6px;
+  box-sizing: border-box;
 }
 
 .counter-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
   margin-bottom: 14px;
 }
 
@@ -237,6 +257,7 @@
 .counter-controls button {
   width: 32px;
   height: 32px;
+  flex-shrink: 0;
   border-radius: 50%;
   border: none;
   background-color: #0c3981;
@@ -265,15 +286,16 @@
 /* ==========================================
    BOOK NOW BUTTON
 ========================================== */
+
 .book-btn {
   grid-column: 4;
-  height: 48px; /* تكبير ارتفاع زر Book Now */
+  height: 48px;
   align-self: flex-end;
   border: 0;
   background: #0c3981;
   color: white;
   border-radius: 8px;
-  font-size: 18px !important; /* تكبير خط زر Book Now */
+  font-size: 18px !important;
   font-weight: 700;
   cursor: pointer;
   display: flex;
@@ -284,40 +306,178 @@
 }
 
 .book-btn:hover {
-  background-color: #0c3981;
+  background-color: #092d68;
+}
+
+.book-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 /* ==========================================
-   RESPONSIVE DESIGN
+   TABLET - 800px
 ========================================== */
+
 @media (max-width: 800px) {
+  .hero {
+    min-height: auto;
+    padding-bottom: 35px;
+  }
+
+  .hero-content {
+    padding-top: 70px;
+  }
+
+  .booking-box {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: calc(100% - 40px);
+    margin: 40px auto 0;
+    padding: 22px;
+  }
+
   .booking-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
 
   .book-btn {
     grid-column: auto;
   }
 
-  .hero {
-    min-height: 750px;
+  .service-tabs {
+    gap: 18px;
   }
 
-  .booking-box {
-    bottom: -240px;
+  .service-tabs button {
+    font-size: 15px;
   }
 }
 
+/* ==========================================
+   MOBILE - 520px
+========================================== */
+
 @media (max-width: 520px) {
-  .booking-grid {
-    grid-template-columns: 1fr;
+  .hero {
+    padding-bottom: 25px;
+    background-position: center;
   }
 
-  .hero {
-    min-height: 900px;
+  .hero-content {
+    width: calc(100% - 36px);
+    padding-top: 55px;
+  }
+
+  .eyebrow,
+  .eyebrow1 {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 10vw, 48px);
+    line-height: 1.08;
+    margin: 12px 0;
+  }
+
+  .hero-content > p:last-child {
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   .booking-box {
-    bottom: -360px;
+    width: calc(100% - 24px);
+    margin-top: 30px;
+    padding: 18px 15px 22px;
+    border-radius: 10px;
+  }
+
+  .service-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-bottom: 15px;
+    margin-bottom: 18px;
+  }
+
+  .service-tabs button {
+    width: 100%;
+    font-size: 15px;
+    padding: 8px 4px;
+  }
+
+  .booking-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .booking-tabs button {
+    justify-content: center;
+    padding: 11px 8px;
+    font-size: 13px;
+    gap: 6px;
+  }
+
+  .booking-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .booking-grid label,
+  .guest-selector-container {
+    font-size: 14px;
+  }
+
+  .booking-grid input,
+  .booking-grid select,
+  .guest-picker-btn {
+    height: 46px;
+    font-size: 14px;
+  }
+
+  .book-btn {
+    grid-column: auto;
+    width: 100%;
+    height: 48px;
+    font-size: 16px !important;
+  }
+
+  .guest-dropdown-menu {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE - 360px
+========================================== */
+
+@media (max-width: 360px) {
+  .hero-content {
+    width: calc(100% - 28px);
+  }
+
+  .booking-box {
+    width: calc(100% - 16px);
+    padding: 15px 12px;
+  }
+
+  .booking-tabs button {
+    font-size: 12px;
+    padding: 10px 5px;
+  }
+
+  .counter-row {
+    gap: 6px;
+  }
+
+  .counter-controls {
+    gap: 8px;
   }
 }
