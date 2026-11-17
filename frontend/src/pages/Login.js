@@ -1,11 +1,15 @@
 
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import './pageCSS/Login.css';
+import './pageCSS/Home.css';
 
 const Login = () => {
+  const [isRegister, setIsRegister] = useState(false);
+
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -13,24 +17,36 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const endpoint = isRegister
+        ? 'http://localhost:5000/api/register'
+        : 'http://localhost:5000/api/login';
+
+      const body = isRegister
+        ? { name, email, password }
+        : { email, password };
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(body),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || data.error || 'Failed to login');
+        throw new Error(
+          data.message || data.error || 'Something went wrong'
+        );
       }
 
+      // Save session and token
       if (data.token) {
         localStorage.setItem('token', data.token);
       }
@@ -39,13 +55,24 @@ const Login = () => {
         localStorage.setItem('user', JSON.stringify(data.user));
       }
 
+      // Redirect after successful authentication
       navigate('/');
+
     } catch (err) {
-      console.error('Login error:', err);
+      console.error('Authentication error:', err);
       setError(err.message);
+
     } finally {
       setLoading(false);
     }
+  };
+
+  const switchMode = () => {
+    setIsRegister(!isRegister);
+    setError(null);
+    setName('');
+    setEmail('');
+    setPassword('');
   };
 
   return (
@@ -55,7 +82,7 @@ const Login = () => {
       <div className="login-glow glow-one"></div>
       <div className="login-glow glow-two"></div>
 
-      {/* 3D Airplane Section */}
+      {/* Airplane Section */}
       <div className="airplane-section">
 
         <div className="orbit orbit-one"></div>
@@ -68,7 +95,9 @@ const Login = () => {
 
         <div className="airplane-text">
           <span>YOUR JOURNEY STARTS HERE</span>
+
           <h1>Explore The World</h1>
+
           <p>
             Discover new destinations and enjoy
             unforgettable experiences.
@@ -81,32 +110,67 @@ const Login = () => {
 
       </div>
 
-      {/* Login Form */}
+      {/* Authentication Section */}
       <div className="login-content">
 
         <div className="login-card">
 
+          {/* Logo */}
           <div className="login-logo">
             <span>✈</span>
             <h2>TRAVEL<span>ZONE</span></h2>
           </div>
 
+          {/* Heading */}
           <div className="login-heading">
-            <span className="login-subtitle">WELCOME BACK</span>
-            <h1>Sign In</h1>
-            <p>Enter your details to access your account.</p>
+
+            <span className="login-subtitle">
+              {isRegister
+                ? 'CREATE YOUR ACCOUNT'
+                : 'WELCOME BACK'}
+            </span>
+
+            <h1>
+              {isRegister ? 'Sign Up' : 'Sign In'}
+            </h1>
+
+            <p>
+              {isRegister
+                ? 'Create your account and start your journey.'
+                : 'Enter your details to access your account.'}
+            </p>
+
           </div>
 
+          {/* Error Message */}
           {error && (
             <div className="login-error">
               {error}
             </div>
           )}
 
+          {/* Authentication Form */}
           <form onSubmit={handleSubmit}>
 
+            {/* Full Name - Register Only */}
+            {isRegister && (
+              <div className="login-input-group">
+                <label>Full Name</label>
+
+                <input
+                  type="text"
+                  placeholder="Enter your full name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+            )}
+
+            {/* Email */}
             <div className="login-input-group">
               <label>Email Address</label>
+
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -116,8 +180,10 @@ const Login = () => {
               />
             </div>
 
+            {/* Password */}
             <div className="login-input-group">
               <label>Password</label>
+
               <input
                 type="password"
                 placeholder="Enter your password"
@@ -127,24 +193,44 @@ const Login = () => {
               />
             </div>
 
+            {/* Submit Button */}
             <button
               type="submit"
               className="login-button"
               disabled={loading}
             >
-              {loading ? 'Signing in...' : 'Sign In'}
+              {loading
+                ? 'Please wait...'
+                : isRegister
+                  ? 'Create Account'
+                  : 'Sign In'}
+
               {!loading && <span>→</span>}
             </button>
 
           </form>
 
+          {/* Switch Between Login and Register */}
           <div className="login-footer">
-            Don't have an account?
-            <Link to="/register"> Sign Up</Link>
+
+            {isRegister
+              ? 'Already have an account?'
+              : "Don't have an account?"}
+
+            <button
+              type="button"
+              className="auth-switch"
+              onClick={switchMode}
+              disabled={loading}
+            >
+              {isRegister ? 'Sign In' : 'Sign Up'}
+            </button>
+
           </div>
 
         </div>
 
+        {/* Copyright */}
         <div className="login-bottom-text">
           © 2026 TravelZone. All rights reserved.
         </div>

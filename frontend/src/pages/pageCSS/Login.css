@@ -119,6 +119,7 @@
   border: 1px solid rgba(118, 190, 255, 0.2);
   border-radius: 50%;
   transform: rotate(-25deg);
+  pointer-events: none;
 }
 
 .orbit-one {
@@ -185,6 +186,7 @@
   border-radius: 50px;
   filter: blur(2px);
   animation: cloudMove 8s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
 .cloud-one {
@@ -388,14 +390,23 @@
   color: #8491a3;
 }
 
-.login-footer a {
+.auth-switch {
+  background: none;
+  border: none;
   color: #0879d8;
   font-weight: 700;
-  text-decoration: none;
+  cursor: pointer;
+  font-size: inherit;
+  margin-left: 5px;
 }
 
-.login-footer a:hover {
+.auth-switch:hover {
   text-decoration: underline;
+}
+
+.auth-switch:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .login-bottom-text {
@@ -537,4 +548,16 @@
     font-size: 27px;
   }
 
+}
+
+/* =================================
+   REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .plane-3d,
+  .cloud,
+  .orbit-one {
+    animation: none;
+  }
 }
