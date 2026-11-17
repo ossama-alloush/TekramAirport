@@ -49,7 +49,7 @@ function LebanesePlaces() {
         <h2>
           Explore The Beautiful
           <br />
-          Places Around Jordan
+          Places Around Lebanon
         </h2>
 
       </div>
