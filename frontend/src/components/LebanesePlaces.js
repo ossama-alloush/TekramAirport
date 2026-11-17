@@ -16,7 +16,7 @@ const places = [
   {
     name: "Zaytoona Bay",
     image:
-      "https://lebaneseamericans.org/wp-content/uploads/2022/06/v75jw1p9lse51.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_PhYd4h8D56oPZcMzNNkpmc2tJsi3BkOMEnW3zpNi7g&s=10",
   },
 
   {
