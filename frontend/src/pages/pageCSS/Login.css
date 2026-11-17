@@ -550,6 +550,68 @@
 
 }
 
+
+/* =================================
+   SIGN IN / SIGN UP SWITCH
+================================= */
+
+.auth-switch {
+  background: none;
+  border: none;
+  color: #0879d8;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: inherit;
+  margin-left: 5px;
+  transition: 0.3s;
+}
+
+.auth-switch:hover {
+  color: #1453a5;
+  text-decoration: underline;
+}
+
+.auth-switch:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =================================
+   SUCCESS MESSAGE
+================================= */
+
+.login-success {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* =================================
+   FORM TRANSITION
+================================= */
+
+.login-input-group {
+  animation: formAppear 0.3s ease;
+}
+
+@keyframes formAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 /* =================================
    REDUCED MOTION
 ================================= */

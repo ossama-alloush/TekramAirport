@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './pageCSS/Home.css';
 
 const Login = () => {
@@ -12,14 +12,29 @@ const Login = () => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   const navigate = useNavigate();
 
+  // Switch between Sign In and Sign Up
+  const switchMode = () => {
+    setIsRegister((prev) => !prev);
+
+    setName('');
+    setEmail('');
+    setPassword('');
+
+    setError(null);
+    setSuccess(null);
+  };
+
+  // Login / Register
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setLoading(true);
     setError(null);
+    setSuccess(null);
 
     try {
       const endpoint = isRegister
@@ -42,21 +57,31 @@ const Login = () => {
 
       if (!response.ok) {
         throw new Error(
-          data.message || data.error || 'Something went wrong'
+          data.message || data.error || 'Authentication failed'
         );
       }
 
-      // Save session and token
-      if (data.token) {
-        localStorage.setItem('token', data.token);
-      }
+      if (isRegister) {
+        // Registration successful
+        setSuccess('Account created successfully! You can now sign in.');
 
-      if (data.user) {
-        localStorage.setItem('user', JSON.stringify(data.user));
-      }
+        setIsRegister(false);
+        setName('');
+        setEmail('');
+        setPassword('');
 
-      // Redirect after successful authentication
-      navigate('/');
+      } else {
+        // Login successful
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+        }
+
+        if (data.user) {
+          localStorage.setItem('user', JSON.stringify(data.user));
+        }
+
+        navigate('/');
+      }
 
     } catch (err) {
       console.error('Authentication error:', err);
@@ -65,14 +90,6 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const switchMode = () => {
-    setIsRegister(!isRegister);
-    setError(null);
-    setName('');
-    setEmail('');
-    setPassword('');
   };
 
   return (
@@ -131,28 +148,35 @@ const Login = () => {
             </span>
 
             <h1>
-              {isRegister ? 'Sign Up' : 'Sign In'}
+              {isRegister ? 'Create Account' : 'Sign In'}
             </h1>
 
             <p>
               {isRegister
-                ? 'Create your account and start your journey.'
+                ? 'Join us and start exploring the world.'
                 : 'Enter your details to access your account.'}
             </p>
 
           </div>
 
-          {/* Error Message */}
+          {/* Error */}
           {error && (
             <div className="login-error">
               {error}
             </div>
           )}
 
-          {/* Authentication Form */}
+          {/* Success */}
+          {success && (
+            <div className="login-success">
+              {success}
+            </div>
+          )}
+
+          {/* Form */}
           <form onSubmit={handleSubmit}>
 
-            {/* Full Name - Register Only */}
+            {/* Full Name - Only in Sign Up */}
             {isRegister && (
               <div className="login-input-group">
                 <label>Full Name</label>
@@ -176,7 +200,7 @@ const Login = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
+                  required
               />
             </div>
 
@@ -190,10 +214,11 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                minLength={isRegister ? 8 : undefined}
               />
             </div>
 
-            {/* Submit Button */}
+            {/* Submit */}
             <button
               type="submit"
               className="login-button"
@@ -210,7 +235,7 @@ const Login = () => {
 
           </form>
 
-          {/* Switch Between Login and Register */}
+          {/* Switch Mode - No Navigation */}
           <div className="login-footer">
 
             {isRegister
