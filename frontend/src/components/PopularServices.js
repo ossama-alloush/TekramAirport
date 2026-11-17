@@ -64,7 +64,9 @@ function PopularServices() {
       <div className="section-heading">
         <h2>
           <br/>
-         All Meet & Greet Services
+         All Meet & Greet
+        <br/>
+        services
         </h2>
       </div>
 
