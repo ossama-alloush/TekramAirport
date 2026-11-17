@@ -83,8 +83,8 @@ const AboutUs = () => {
           <h3>About Us</h3>
           <h4>We Meet You with a Smile and Greet You with Tikram</h4>
           <p>
-            Tekram, which is 100% owned by the Royal Jordanian Airline, provides many travel services at the airport.
-            Providing a welcome to departing, arriving, and transit passengers at Queen Alia International Airport. Escorting travelers, completing immigration procedures, dedicate a fast track for them at the passport / immigration counter, assistance with the baggage, baggage wrapping, access to the "Crown" Lounge of the Royal Jordanian Airlines and Limousine & Bus cars that transport passengers between the airport terminal to and from the gates.
+            Tekram, which is 100% owned by the MEA, provides many travel services at the airport.
+            Providing a welcome to departing, arriving, and transit passengers at Reineh Mouawad International Airport. Escorting travelers, completing immigration procedures, dedicate a fast track for them at the passport / immigration counter, assistance with the baggage, baggage wrapping, access to the "Crown" Lounge of the MEA and Limousine & Bus cars that transport passengers between the airport terminal to and from the gates.
           </p>
           <p>
             Individual travelers, families, tour groups, multinational airlines, hotels, travel agencies, and others benefit from "Tekram" services, who can request any service through the counters.
@@ -93,7 +93,7 @@ const AboutUs = () => {
 
         <div className="about-image">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUahfOmr4dwqTxkuQRh2Hnd4AKnk1-3OJR_HKFXsNXlAf3vJzY5KzssNQ&s=10"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq9HtETPytdKmB5oazWdixRFSZ4xJ6kmd3VviEZtGPGQ&s=10"
             alt="Airport Lounge"
           />
         </div>
