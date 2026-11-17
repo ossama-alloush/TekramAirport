@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './pageCSS/Home.css';
+import './pageCSS/Login.css';
 
 const Login = () => {
   const [isRegister, setIsRegister] = useState(false);
