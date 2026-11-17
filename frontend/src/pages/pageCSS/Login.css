@@ -1,0 +1,540 @@
+
+/* =================================
+   LOGIN PAGE
+================================= */
+
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  padding: 50px 8%;
+  background: linear-gradient(
+    135deg,
+    #061329 0%,
+    #0b2144 50%,
+    #102e55 100%
+  );
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* =================================
+   BACKGROUND GLOW
+================================= */
+
+.login-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.glow-one {
+  width: 350px;
+  height: 350px;
+  background: rgba(36, 129, 255, 0.18);
+  top: -100px;
+  left: -100px;
+}
+
+.glow-two {
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 183, 255, 0.12);
+  bottom: -100px;
+  right: 10%;
+}
+
+/* =================================
+   AIRPLANE SECTION
+================================= */
+
+.airplane-section {
+  position: relative;
+  width: 55%;
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  perspective: 1000px;
+  z-index: 1;
+}
+
+.plane-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 45px;
+  perspective: 1000px;
+}
+
+.plane-3d {
+  font-size: clamp(100px, 15vw, 190px);
+  color: #ffffff;
+  transform: rotate(-18deg) rotateY(-20deg);
+  text-shadow:
+    2px 3px 0 #a8c7e8,
+    5px 7px 0 #638bb7,
+    10px 15px 20px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(73, 166, 255, 0.5);
+  filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.4));
+  animation: planeFloat 4s ease-in-out infinite;
+  z-index: 2;
+}
+
+.plane-shadow {
+  position: absolute;
+  font-size: clamp(100px, 15vw, 190px);
+  color: rgba(0, 0, 0, 0.2);
+  transform: translate(20px, 30px) rotate(-18deg);
+  filter: blur(12px);
+  z-index: 1;
+}
+
+@keyframes planeFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-18deg) rotateY(-20deg);
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(-13deg) rotateY(-10deg);
+  }
+}
+
+/* =================================
+   ORBITS
+================================= */
+
+.orbit {
+  position: absolute;
+  width: 420px;
+  height: 180px;
+  border: 1px solid rgba(118, 190, 255, 0.2);
+  border-radius: 50%;
+  transform: rotate(-25deg);
+}
+
+.orbit-one {
+  animation: orbitRotate 12s linear infinite;
+}
+
+.orbit-two {
+  width: 520px;
+  height: 240px;
+  transform: rotate(35deg);
+  border-color: rgba(118, 190, 255, 0.1);
+}
+
+@keyframes orbitRotate {
+  from {
+    transform: rotate(-25deg);
+  }
+
+  to {
+    transform: rotate(335deg);
+  }
+}
+
+/* =================================
+   AIRPLANE TEXT
+================================= */
+
+.airplane-text {
+  text-align: center;
+  color: white;
+  z-index: 3;
+}
+
+.airplane-text span {
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #67b8ff;
+  font-weight: 600;
+}
+
+.airplane-text h1 {
+  font-size: clamp(30px, 4vw, 48px);
+  margin: 15px 0;
+  font-weight: 700;
+}
+
+.airplane-text p {
+  color: #aabbd0;
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 400px;
+  margin: auto;
+}
+
+/* =================================
+   CLOUDS
+================================= */
+
+.cloud {
+  position: absolute;
+  width: 90px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50px;
+  filter: blur(2px);
+  animation: cloudMove 8s ease-in-out infinite alternate;
+}
+
+.cloud-one {
+  top: 18%;
+  left: 10%;
+}
+
+.cloud-two {
+  top: 55%;
+  right: 5%;
+  animation-delay: 2s;
+}
+
+.cloud-three {
+  bottom: 12%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes cloudMove {
+  from {
+    transform: translateX(-15px);
+  }
+
+  to {
+    transform: translateX(25px);
+  }
+}
+
+/* =================================
+   LOGIN CONTENT
+================================= */
+
+.login-content {
+  width: 42%;
+  max-width: 470px;
+  position: relative;
+  z-index: 5;
+}
+
+.login-card {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.97);
+  padding: 45px;
+  border-radius: 22px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(20px);
+}
+
+/* =================================
+   LOGO
+================================= */
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 45px;
+}
+
+.login-logo span {
+  color: #1687e8;
+  font-size: 30px;
+}
+
+.login-logo h2 {
+  color: #102746;
+  font-size: 19px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.login-logo h2 span {
+  color: #1687e8;
+  font-size: inherit;
+}
+
+/* =================================
+   HEADING
+================================= */
+
+.login-subtitle {
+  color: #1687e8;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.login-heading h1 {
+  color: #102746;
+  font-size: 38px;
+  margin: 12px 0;
+}
+
+.login-heading p {
+  color: #8491a3;
+  font-size: 14px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* =================================
+   INPUTS
+================================= */
+
+.login-input-group {
+  margin-bottom: 22px;
+}
+
+.login-input-group label {
+  display: block;
+  color: #263b55;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+
+.login-input-group input {
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  border: 1px solid #e0e6ef;
+  border-radius: 9px;
+  outline: none;
+  font-size: 14px;
+  color: #102746;
+  background: #f8faff;
+  transition: 0.3s;
+}
+
+.login-input-group input:focus {
+  border-color: #1687e8;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(22, 135, 232, 0.1);
+}
+
+.login-input-group input::placeholder {
+  color: #aab4c2;
+}
+
+/* =================================
+   BUTTON
+================================= */
+
+.login-button {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #0879d8, #1453a5);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  transition: 0.3s;
+}
+
+.login-button span {
+  font-size: 21px;
+}
+
+.login-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(8, 121, 216, 0.3);
+}
+
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =================================
+   ERROR
+================================= */
+
+.login-error {
+  background: #fff0f0;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+.login-footer {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 13px;
+  color: #8491a3;
+}
+
+.login-footer a {
+  color: #0879d8;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+.login-bottom-text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  margin-top: 25px;
+}
+
+/* =================================
+   RESPONSIVE - TABLET
+================================= */
+
+@media (max-width: 1000px) {
+
+  .login-page {
+    padding: 40px 4%;
+    gap: 25px;
+  }
+
+  .airplane-section {
+    width: 48%;
+  }
+
+  .login-content {
+    width: 48%;
+  }
+
+  .login-card {
+    padding: 30px;
+  }
+
+  .orbit {
+    width: 300px;
+    height: 140px;
+  }
+
+}
+
+/* =================================
+   RESPONSIVE - MOBILE
+================================= */
+
+@media (max-width: 700px) {
+
+  .login-page {
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 18px;
+    gap: 10px;
+  }
+
+  .airplane-section {
+    width: 100%;
+    min-height: 220px;
+  }
+
+  .plane-container {
+    margin-bottom: 10px;
+  }
+
+  .plane-3d,
+  .plane-shadow {
+    font-size: 90px;
+  }
+
+  .orbit {
+    width: 230px;
+    height: 100px;
+  }
+
+  .orbit-two {
+    width: 280px;
+    height: 130px;
+  }
+
+  .airplane-text span {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .airplane-text h1 {
+    font-size: 25px;
+    margin: 8px 0;
+  }
+
+  .airplane-text p {
+    display: none;
+  }
+
+  .login-content {
+    width: 100%;
+    max-width: 430px;
+  }
+
+  .login-card {
+    padding: 28px 22px;
+    border-radius: 17px;
+  }
+
+  .login-logo {
+    margin-bottom: 25px;
+  }
+
+  .login-heading h1 {
+    font-size: 30px;
+  }
+
+  .login-heading p {
+    margin-bottom: 22px;
+  }
+
+  .login-bottom-text {
+    margin-top: 15px;
+  }
+
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 380px) {
+
+  .airplane-section {
+    min-height: 180px;
+  }
+
+  .plane-3d,
+  .plane-shadow {
+    font-size: 70px;
+  }
+
+  .login-card {
+    padding: 23px 17px;
+  }
+
+  .login-heading h1 {
+    font-size: 27px;
+  }
+
+}

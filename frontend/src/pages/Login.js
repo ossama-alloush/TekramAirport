@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './pageCSS/Home.css';
+import { useNavigate, Link } from 'react-router-dom';
+import './pageCSS/Login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -30,15 +31,14 @@ const Login = () => {
         throw new Error(data.message || data.error || 'Failed to login');
       }
 
-      // حفظ بيانات الجلسة والتوكن
       if (data.token) {
         localStorage.setItem('token', data.token);
       }
+
       if (data.user) {
         localStorage.setItem('user', JSON.stringify(data.user));
       }
 
-      // إعادة التوجيه للصفحة الرئيسية بعد تسجيل الدخول بنجاح
       navigate('/');
     } catch (err) {
       console.error('Login error:', err);
@@ -49,103 +49,108 @@ const Login = () => {
   };
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      background: 'linear-gradient(135deg, #f0f4ff 0%, #e8edf5 100%)',
-      padding: '1rem'
-    }}>
-      <div style={{
-        background: 'white',
-        padding: '2.5rem',
-        borderRadius: '1rem',
-        boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)',
-        width: '100%',
-        maxWidth: '400px'
-      }}>
-        <h2 style={{ fontSize: '1.875rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '1.5rem' }}>
-          Welcome Back
-        </h2>
+    <div className="login-page">
 
-        {error && (
-          <div style={{
-            backgroundColor: '#fef2f2',
-            color: '#dc2626',
-            padding: '0.75rem',
-            borderRadius: '0.5rem',
-            marginBottom: '1rem',
-            fontSize: '0.875rem',
-            textAlign: 'center',
-            border: '1px solid #fecaca'
-          }}>
-            {error}
-          </div>
-        )}
+      {/* Background Decorations */}
+      <div className="login-glow glow-one"></div>
+      <div className="login-glow glow-two"></div>
 
-        <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              style={{
-                width: '100%',
-                padding: '0.75rem',
-                border: '1px solid #d1d5db',
-                borderRadius: '0.5rem',
-                fontSize: '1rem'
-              }}
-              required
-            />
-          </div>
-          <div style={{ marginBottom: '1.5rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              style={{
-                width: '100%',
-                padding: '0.75rem',
-                border: '1px solid #d1d5db',
-                borderRadius: '0.5rem',
-                fontSize: '1rem'
-              }}
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={loading}
-            style={{
-              width: '100%',
-              padding: '0.75rem',
-              background: loading ? '#9ca3af' : 'linear-gradient(90deg, #2563eb, #4f46e5)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '0.5rem',
-              fontSize: '1rem',
-              fontWeight: '600',
-              cursor: loading ? 'not-allowed' : 'pointer',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              if (!loading) e.target.style.background = 'linear-gradient(90deg, #1d4ed8, #4338ca)';
-            }}
-            onMouseLeave={(e) => {
-              if (!loading) e.target.style.background = 'linear-gradient(90deg, #2563eb, #4f46e5)';
-            }}
-          >
-            {loading ? 'Signing in...' : 'Sign In'}
-          </button>
-        </form>
-        <p style={{ textAlign: 'center', marginTop: '1rem', color: '#6b7280' }}>
-          Don't have an account? <a href="/register" style={{ color: '#2563eb', textDecoration: 'none' }}>Sign up</a>
-        </p>
+      {/* 3D Airplane Section */}
+      <div className="airplane-section">
+
+        <div className="orbit orbit-one"></div>
+        <div className="orbit orbit-two"></div>
+
+        <div className="plane-container">
+          <div className="plane-shadow">✈</div>
+          <div className="plane-3d">✈</div>
+        </div>
+
+        <div className="airplane-text">
+          <span>YOUR JOURNEY STARTS HERE</span>
+          <h1>Explore The World</h1>
+          <p>
+            Discover new destinations and enjoy
+            unforgettable experiences.
+          </p>
+        </div>
+
+        <div className="cloud cloud-one"></div>
+        <div className="cloud cloud-two"></div>
+        <div className="cloud cloud-three"></div>
+
       </div>
+
+      {/* Login Form */}
+      <div className="login-content">
+
+        <div className="login-card">
+
+          <div className="login-logo">
+            <span>✈</span>
+            <h2>TRAVEL<span>ZONE</span></h2>
+          </div>
+
+          <div className="login-heading">
+            <span className="login-subtitle">WELCOME BACK</span>
+            <h1>Sign In</h1>
+            <p>Enter your details to access your account.</p>
+          </div>
+
+          {error && (
+            <div className="login-error">
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit}>
+
+            <div className="login-input-group">
+              <label>Email Address</label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="login-input-group">
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="login-button"
+              disabled={loading}
+            >
+              {loading ? 'Signing in...' : 'Sign In'}
+              {!loading && <span>→</span>}
+            </button>
+
+          </form>
+
+          <div className="login-footer">
+            Don't have an account?
+            <Link to="/register"> Sign Up</Link>
+          </div>
+
+        </div>
+
+        <div className="login-bottom-text">
+          © 2026 TravelZone. All rights reserved.
+        </div>
+
+      </div>
+
     </div>
   );
 };
