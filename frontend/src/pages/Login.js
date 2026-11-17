@@ -1,7 +1,8 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './pageCSS/Login.css';
+
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 const Login = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -38,8 +39,8 @@ const Login = () => {
 
     try {
       const endpoint = isRegister
-        ? 'http://localhost:5000/api/register'
-        : 'http://localhost:5000/api/login';
+        ? `${API_BASE_URL}/api/register`
+        : `${API_BASE_URL}/api/login`;
 
       const body = isRegister
         ? { name, email, password }
@@ -135,7 +136,7 @@ const Login = () => {
           {/* Logo */}
           <div className="login-logo">
             <span>✈</span>
-            <h2>TRAVEL<span>ZONE</span></h2>
+            <h2>Tekram</h2>
           </div>
 
           {/* Heading */}
@@ -200,7 +201,7 @@ const Login = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                  required
+                required
               />
             </div>
 
@@ -257,7 +258,7 @@ const Login = () => {
 
         {/* Copyright */}
         <div className="login-bottom-text">
-          © 2026 TravelZone. All rights reserved.
+          © 2026 Tekram. All rights reserved.
         </div>
 
       </div>
