@@ -93,7 +93,7 @@ const AboutUs = () => {
 
         <div className="about-image">
           <img
-            src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUahfOmr4dwqTxkuQRh2Hnd4AKnk1-3OJR_HKFXsNXlAf3vJzY5KzssNQ&s=10"
             alt="Airport Lounge"
           />
         </div>
