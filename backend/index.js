@@ -11,6 +11,46 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Register Endpoint via Supabase Auth
+app.post('/api/register', async (req, res) => {
+  const { name, email, password } = req.body;
+
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: 'Name, email, and password are required' });
+  }
+
+  try {
+    const { data: authData, error: authError } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { full_name: name },
+      },
+    });
+
+    if (authError) {
+      return res.status(400).json({ error: authError.message });
+    }
+
+    // حفظ بيانات المستخدم الإضافية في جدول users إذا كان موجوداً
+    if (authData?.user) {
+      await supabase.from('users').upsert([
+        {
+          id: authData.user.id,
+          name,
+          email,
+        },
+      ]);
+    }
+
+    res.status(201).json({
+      message: 'Account created successfully',
+      user: authData.user,
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // Login Endpoint via Supabase Auth
 app.post('/api/login', async (req, res) => {
@@ -30,7 +70,7 @@ app.post('/api/login', async (req, res) => {
       return res.status(401).json({ error: authError?.message || 'Invalid login credentials' });
     }
 
-    const { data: userData, error: userError } = await supabase
+    const { data: userData } = await supabase
       .from('users')
       .select('*')
       .eq('id', authData.user.id)
@@ -53,7 +93,7 @@ app.post('/api/login', async (req, res) => {
 // BOOKINGS ENDPOINTS (POST, GET, DELETE)
 // -------------------------------------------------------------
 
-// 1. Create Booking (FIXED PRICE HANDLING HERE)
+// 1. Create Booking
 app.post('/api/bookings', async (req, res) => {
   const { serviceType, bookingType, formData, counts, totalGuests, price, totalPrice, amount } = req.body;
 
@@ -66,7 +106,6 @@ app.post('/api/bookings', async (req, res) => {
     if (user) userId = user.id;
   }
 
-  // استخراج السعر بجميع احتمالاته وتحويله لرقم
   const calculatedPrice = Number(
     price || 
     totalPrice || 
@@ -82,10 +121,10 @@ app.post('/api/bookings', async (req, res) => {
       user_id: userId,
       service_type: serviceType,
       booking_type: bookingType,
-      price: calculatedPrice, // حفظه في عمود السعر العام للجدول إن وجد
+      price: calculatedPrice,
       details: {
         ...formData,
-        price: calculatedPrice, // ضمان حفظ السعر داخل الـ details
+        price: calculatedPrice,
         totalPrice: calculatedPrice,
         counts,
         totalGuests,
@@ -98,7 +137,6 @@ app.post('/api/bookings', async (req, res) => {
       .select();
 
     if (error) {
-      // في حال لم يكن هناك عمود باسم price في جدول Supabase مباشرة، يحفظه بدون حقل price العلوي
       if (error.message.includes('column "price" of relation "bookings" does not exist')) {
         delete payload.price;
         const fallbackRes = await supabase.from('bookings').insert([payload]).select();
@@ -135,7 +173,6 @@ app.get('/api/bookings', async (req, res) => {
 
     let query = supabase.from('bookings').select('*');
 
-    // Filter by user_id if the request includes a logged-in user token
     if (userId) {
       query = query.eq('user_id', userId);
     }
