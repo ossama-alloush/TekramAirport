@@ -91,7 +91,9 @@ function PopularServices() {
           </article>
         ))}
       </div>
-
+<div>         <Link to="/meet-and-greet" className="primary-btn">
+  See all Meet & Greet →
+</Link></div>
       {/* All Services */}
       <div className="section-heading services-heading">
         <h2>
@@ -116,8 +118,8 @@ function PopularServices() {
 
         
       </div>
-      <div>         <Link to="/meet-and-greet" className="primary-btn">
-  See all Meet & Greet →
+      <div>         <Link to="/services" className="primary-btn">
+  See all services →
 </Link></div>
 
       {/* Destinations */}
