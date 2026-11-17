@@ -63,9 +63,8 @@ function PopularServices() {
     <section className="popular-section">
       <div className="section-heading">
         <h2>
-          Our Most Popular
-          <br />
-          Services
+          <br/>
+         All Meet & Greet Services
         </h2>
       </div>
 
@@ -85,7 +84,6 @@ function PopularServices() {
 
               <div className="card-bottom">
                 <strong>{item.price}</strong>
-                <button>Book Now</button>
               </div>
             </div>
           </article>
@@ -95,9 +93,9 @@ function PopularServices() {
       {/* All Services */}
       <div className="section-heading services-heading">
         <h2>
-          View All Meet &
+          Our Most Popular
           <br />
-          Greet
+          Services
         </h2>
       </div>
 
